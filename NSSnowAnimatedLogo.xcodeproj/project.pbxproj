@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E252347418BABE38005AB578 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252347318BABE38005AB578 /* Foundation.framework */; };
+		E252347618BABE38005AB578 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252347518BABE38005AB578 /* CoreGraphics.framework */; };
+		E252347818BABE38005AB578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252347718BABE38005AB578 /* UIKit.framework */; };
+		E252347E18BABE38005AB578 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E252347C18BABE38005AB578 /* InfoPlist.strings */; };
+		E252348018BABE38005AB578 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E252347F18BABE38005AB578 /* main.m */; };
+		E252348418BABE38005AB578 /* NSSNOWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E252348318BABE38005AB578 /* NSSNOWAppDelegate.m */; };
+		E252348618BABE39005AB578 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E252348518BABE39005AB578 /* Images.xcassets */; };
+		E252348D18BABE39005AB578 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252348C18BABE39005AB578 /* XCTest.framework */; };
+		E252348E18BABE39005AB578 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252347318BABE38005AB578 /* Foundation.framework */; };
+		E252348F18BABE39005AB578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252347718BABE38005AB578 /* UIKit.framework */; };
+		E252349718BABE39005AB578 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E252349518BABE39005AB578 /* InfoPlist.strings */; };
+		E252349918BABE39005AB578 /* NSSnowAnimatedLogoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E252349818BABE39005AB578 /* NSSnowAnimatedLogoTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E252349018BABE39005AB578 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E252346818BABE38005AB578 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E252346F18BABE38005AB578;
+			remoteInfo = NSSnowAnimatedLogo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E252347018BABE38005AB578 /* NSSnowAnimatedLogo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSSnowAnimatedLogo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E252347318BABE38005AB578 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E252347518BABE38005AB578 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E252347718BABE38005AB578 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E252347B18BABE38005AB578 /* NSSnowAnimatedLogo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSSnowAnimatedLogo-Info.plist"; sourceTree = "<group>"; };
+		E252347D18BABE38005AB578 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E252347F18BABE38005AB578 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E252348118BABE38005AB578 /* NSSnowAnimatedLogo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSSnowAnimatedLogo-Prefix.pch"; sourceTree = "<group>"; };
+		E252348218BABE38005AB578 /* NSSNOWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSSNOWAppDelegate.h; sourceTree = "<group>"; };
+		E252348318BABE38005AB578 /* NSSNOWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSSNOWAppDelegate.m; sourceTree = "<group>"; };
+		E252348518BABE39005AB578 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E252348B18BABE39005AB578 /* NSSnowAnimatedLogoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSSnowAnimatedLogoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E252348C18BABE39005AB578 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E252349418BABE39005AB578 /* NSSnowAnimatedLogoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSSnowAnimatedLogoTests-Info.plist"; sourceTree = "<group>"; };
+		E252349618BABE39005AB578 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E252349818BABE39005AB578 /* NSSnowAnimatedLogoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSSnowAnimatedLogoTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E252346D18BABE38005AB578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E252347618BABE38005AB578 /* CoreGraphics.framework in Frameworks */,
+				E252347818BABE38005AB578 /* UIKit.framework in Frameworks */,
+				E252347418BABE38005AB578 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E252348818BABE39005AB578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E252348D18BABE39005AB578 /* XCTest.framework in Frameworks */,
+				E252348F18BABE39005AB578 /* UIKit.framework in Frameworks */,
+				E252348E18BABE39005AB578 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E252346718BABE38005AB578 = {
+			isa = PBXGroup;
+			children = (
+				E252347918BABE38005AB578 /* NSSnowAnimatedLogo */,
+				E252349218BABE39005AB578 /* NSSnowAnimatedLogoTests */,
+				E252347218BABE38005AB578 /* Frameworks */,
+				E252347118BABE38005AB578 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E252347118BABE38005AB578 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E252347018BABE38005AB578 /* NSSnowAnimatedLogo.app */,
+				E252348B18BABE39005AB578 /* NSSnowAnimatedLogoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E252347218BABE38005AB578 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E252347318BABE38005AB578 /* Foundation.framework */,
+				E252347518BABE38005AB578 /* CoreGraphics.framework */,
+				E252347718BABE38005AB578 /* UIKit.framework */,
+				E252348C18BABE39005AB578 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E252347918BABE38005AB578 /* NSSnowAnimatedLogo */ = {
+			isa = PBXGroup;
+			children = (
+				E252348218BABE38005AB578 /* NSSNOWAppDelegate.h */,
+				E252348318BABE38005AB578 /* NSSNOWAppDelegate.m */,
+				E252348518BABE39005AB578 /* Images.xcassets */,
+				E252347A18BABE38005AB578 /* Supporting Files */,
+			);
+			path = NSSnowAnimatedLogo;
+			sourceTree = "<group>";
+		};
+		E252347A18BABE38005AB578 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E252347B18BABE38005AB578 /* NSSnowAnimatedLogo-Info.plist */,
+				E252347C18BABE38005AB578 /* InfoPlist.strings */,
+				E252347F18BABE38005AB578 /* main.m */,
+				E252348118BABE38005AB578 /* NSSnowAnimatedLogo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E252349218BABE39005AB578 /* NSSnowAnimatedLogoTests */ = {
+			isa = PBXGroup;
+			children = (
+				E252349818BABE39005AB578 /* NSSnowAnimatedLogoTests.m */,
+				E252349318BABE39005AB578 /* Supporting Files */,
+			);
+			path = NSSnowAnimatedLogoTests;
+			sourceTree = "<group>";
+		};
+		E252349318BABE39005AB578 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E252349418BABE39005AB578 /* NSSnowAnimatedLogoTests-Info.plist */,
+				E252349518BABE39005AB578 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E252346F18BABE38005AB578 /* NSSnowAnimatedLogo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E252349C18BABE39005AB578 /* Build configuration list for PBXNativeTarget "NSSnowAnimatedLogo" */;
+			buildPhases = (
+				E252346C18BABE38005AB578 /* Sources */,
+				E252346D18BABE38005AB578 /* Frameworks */,
+				E252346E18BABE38005AB578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSSnowAnimatedLogo;
+			productName = NSSnowAnimatedLogo;
+			productReference = E252347018BABE38005AB578 /* NSSnowAnimatedLogo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E252348A18BABE39005AB578 /* NSSnowAnimatedLogoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E252349F18BABE39005AB578 /* Build configuration list for PBXNativeTarget "NSSnowAnimatedLogoTests" */;
+			buildPhases = (
+				E252348718BABE39005AB578 /* Sources */,
+				E252348818BABE39005AB578 /* Frameworks */,
+				E252348918BABE39005AB578 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E252349118BABE39005AB578 /* PBXTargetDependency */,
+			);
+			name = NSSnowAnimatedLogoTests;
+			productName = NSSnowAnimatedLogoTests;
+			productReference = E252348B18BABE39005AB578 /* NSSnowAnimatedLogoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E252346818BABE38005AB578 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NSSNOW;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Duchy Software Ltd";
+				TargetAttributes = {
+					E252348A18BABE39005AB578 = {
+						TestTargetID = E252346F18BABE38005AB578;
+					};
+				};
+			};
+			buildConfigurationList = E252346B18BABE38005AB578 /* Build configuration list for PBXProject "NSSnowAnimatedLogo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E252346718BABE38005AB578;
+			productRefGroup = E252347118BABE38005AB578 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E252346F18BABE38005AB578 /* NSSnowAnimatedLogo */,
+				E252348A18BABE39005AB578 /* NSSnowAnimatedLogoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E252346E18BABE38005AB578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E252347E18BABE38005AB578 /* InfoPlist.strings in Resources */,
+				E252348618BABE39005AB578 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E252348918BABE39005AB578 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E252349718BABE39005AB578 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E252346C18BABE38005AB578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E252348418BABE38005AB578 /* NSSNOWAppDelegate.m in Sources */,
+				E252348018BABE38005AB578 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E252348718BABE39005AB578 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E252349918BABE39005AB578 /* NSSnowAnimatedLogoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E252349118BABE39005AB578 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E252346F18BABE38005AB578 /* NSSnowAnimatedLogo */;
+			targetProxy = E252349018BABE39005AB578 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E252347C18BABE38005AB578 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E252347D18BABE38005AB578 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E252349518BABE39005AB578 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E252349618BABE39005AB578 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E252349A18BABE39005AB578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E252349B18BABE39005AB578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E252349D18BABE39005AB578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSSnowAnimatedLogo/NSSnowAnimatedLogo-Prefix.pch";
+				INFOPLIST_FILE = "NSSnowAnimatedLogo/NSSnowAnimatedLogo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E252349E18BABE39005AB578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSSnowAnimatedLogo/NSSnowAnimatedLogo-Prefix.pch";
+				INFOPLIST_FILE = "NSSnowAnimatedLogo/NSSnowAnimatedLogo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E25234A018BABE39005AB578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NSSnowAnimatedLogo.app/NSSnowAnimatedLogo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSSnowAnimatedLogo/NSSnowAnimatedLogo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "NSSnowAnimatedLogoTests/NSSnowAnimatedLogoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E25234A118BABE39005AB578 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NSSnowAnimatedLogo.app/NSSnowAnimatedLogo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSSnowAnimatedLogo/NSSnowAnimatedLogo-Prefix.pch";
+				INFOPLIST_FILE = "NSSnowAnimatedLogoTests/NSSnowAnimatedLogoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E252346B18BABE38005AB578 /* Build configuration list for PBXProject "NSSnowAnimatedLogo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E252349A18BABE39005AB578 /* Debug */,
+				E252349B18BABE39005AB578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E252349C18BABE39005AB578 /* Build configuration list for PBXNativeTarget "NSSnowAnimatedLogo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E252349D18BABE39005AB578 /* Debug */,
+				E252349E18BABE39005AB578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E252349F18BABE39005AB578 /* Build configuration list for PBXNativeTarget "NSSnowAnimatedLogoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E25234A018BABE39005AB578 /* Debug */,
+				E25234A118BABE39005AB578 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E252346818BABE38005AB578 /* Project object */;
+}
