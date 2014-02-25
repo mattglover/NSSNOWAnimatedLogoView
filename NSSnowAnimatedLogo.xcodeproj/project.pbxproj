@@ -19,6 +19,8 @@
 		E252348F18BABE39005AB578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252347718BABE38005AB578 /* UIKit.framework */; };
 		E252349718BABE39005AB578 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E252349518BABE39005AB578 /* InfoPlist.strings */; };
 		E252349918BABE39005AB578 /* NSSnowAnimatedLogoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E252349818BABE39005AB578 /* NSSnowAnimatedLogoTests.m */; };
+		E25234A418BABE5D005AB578 /* NSSNOWAnimatedLogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E25234A318BABE5D005AB578 /* NSSNOWAnimatedLogoView.m */; };
+		E25234A618BAC2BF005AB578 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E25234A518BAC2BF005AB578 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		E252349418BABE39005AB578 /* NSSnowAnimatedLogoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSSnowAnimatedLogoTests-Info.plist"; sourceTree = "<group>"; };
 		E252349618BABE39005AB578 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E252349818BABE39005AB578 /* NSSnowAnimatedLogoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSSnowAnimatedLogoTests.m; sourceTree = "<group>"; };
+		E25234A218BABE5D005AB578 /* NSSNOWAnimatedLogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSNOWAnimatedLogoView.h; sourceTree = "<group>"; };
+		E25234A318BABE5D005AB578 /* NSSNOWAnimatedLogoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSNOWAnimatedLogoView.m; sourceTree = "<group>"; };
+		E25234A518BAC2BF005AB578 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25234A618BAC2BF005AB578 /* QuartzCore.framework in Frameworks */,
 				E252347618BABE38005AB578 /* CoreGraphics.framework in Frameworks */,
 				E252347818BABE38005AB578 /* UIKit.framework in Frameworks */,
 				E252347418BABE38005AB578 /* Foundation.framework in Frameworks */,
@@ -96,6 +102,7 @@
 		E252347218BABE38005AB578 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E25234A518BAC2BF005AB578 /* QuartzCore.framework */,
 				E252347318BABE38005AB578 /* Foundation.framework */,
 				E252347518BABE38005AB578 /* CoreGraphics.framework */,
 				E252347718BABE38005AB578 /* UIKit.framework */,
@@ -107,8 +114,8 @@
 		E252347918BABE38005AB578 /* NSSnowAnimatedLogo */ = {
 			isa = PBXGroup;
 			children = (
-				E252348218BABE38005AB578 /* NSSNOWAppDelegate.h */,
-				E252348318BABE38005AB578 /* NSSNOWAppDelegate.m */,
+				E25234A218BABE5D005AB578 /* NSSNOWAnimatedLogoView.h */,
+				E25234A318BABE5D005AB578 /* NSSNOWAnimatedLogoView.m */,
 				E252348518BABE39005AB578 /* Images.xcassets */,
 				E252347A18BABE38005AB578 /* Supporting Files */,
 			);
@@ -118,6 +125,8 @@
 		E252347A18BABE38005AB578 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E252348218BABE38005AB578 /* NSSNOWAppDelegate.h */,
+				E252348318BABE38005AB578 /* NSSNOWAppDelegate.m */,
 				E252347B18BABE38005AB578 /* NSSnowAnimatedLogo-Info.plist */,
 				E252347C18BABE38005AB578 /* InfoPlist.strings */,
 				E252347F18BABE38005AB578 /* main.m */,
@@ -242,6 +251,7 @@
 			files = (
 				E252348418BABE38005AB578 /* NSSNOWAppDelegate.m in Sources */,
 				E252348018BABE38005AB578 /* main.m in Sources */,
+				E25234A418BABE5D005AB578 /* NSSNOWAnimatedLogoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
