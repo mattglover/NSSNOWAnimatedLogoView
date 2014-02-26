@@ -6,9 +6,17 @@
 //  Copyright (c) 2014 Duchy Software Ltd. All rights reserved.
 //
 
-static CGFloat kStrokeWidth = 6.0f;
-
 #import "NSSNOWAnimatedLogoView.h"
+#import "NSSNOWAnimatedLogoView+Animations.h"
+#import "NSSNOWAnimatedLogoView+Sublayers.h"
+
+static NSTimeInterval kDefaultAnimationDuration = 1.0;
+
+@interface NSSNOWAnimatedLogoView ()
+
+@property (nonatomic, strong) CAShapeLayer *outerCircle;
+@property (nonatomic, strong) CAShapeLayer *mountains;
+@end
 
 @implementation NSSNOWAnimatedLogoView
 
@@ -19,9 +27,11 @@ static CGFloat kStrokeWidth = 6.0f;
     if (self = [super initWithFrame:squareRect]) {
         
         [self setupBackground];
-        [self setClipsToBounds:NO];
         
-        [self animate:YES];
+        [self setupLayers];
+        [self addSublayers];
+        
+        [self animateCircle:YES];
     }
     
     return self;
@@ -42,32 +52,44 @@ static CGFloat kStrokeWidth = 6.0f;
     [self setBackgroundColor:[UIColor blackColor]];
 }
 
-- (void)animate:(BOOL)animated {
+- (void)setupLayers {
+
+    self.outerCircle = [self outerCircleLayer];
     
-    CALayer *outerCircle = [self outerCircleLayer];
-    [self.layer addSublayer:outerCircle];
-    
-    NSTimeInterval animationDuration = animated ? 3.0f : 0.0f;
-    CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    pathAnimation.duration = animationDuration;
-    pathAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
-    pathAnimation.toValue = [NSNumber numberWithFloat:1.0f];
-    
-    [outerCircle addAnimation:pathAnimation forKey:@"strokeEndAnimation"];
+    self.mountains = [self mountainsLayer];
+    [self.mountains setTransform:CATransform3DMakeScale(1.0, 0.0, 1.0)];
 }
 
-- (CALayer *)outerCircleLayer {
+- (void)addSublayers {
     
-    CAShapeLayer *outerCircle = [CAShapeLayer layer];
-    [outerCircle setBounds:CGRectInset(self.bounds, kStrokeWidth, kStrokeWidth)];
-    [outerCircle setPosition:CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(self.bounds)/2)];
-    [outerCircle setPath:[UIBezierPath bezierPathWithRoundedRect:outerCircle.bounds
-                                                    cornerRadius:CGRectGetWidth(outerCircle.bounds)/2].CGPath];
-    [outerCircle setStrokeColor:[UIColor whiteColor].CGColor];
-    [outerCircle setFillColor:self.backgroundColor.CGColor];
-    [outerCircle setLineWidth:kStrokeWidth];
+    [self.layer addSublayer:self.mountains];
+    [self.layer addSublayer:self.outerCircle];
+}
+
+- (void)animateCircle:(BOOL)animated {
     
-    return outerCircle;
+    NSTimeInterval animationDuration = animated ? kDefaultAnimationDuration : 0.0f;
+    CABasicAnimation *outerCircleAnimation = [self outerCircleAnimation:animationDuration];
+    [self.outerCircle addAnimation:outerCircleAnimation forKey:@"circleStrokeEndAnimation"];
+}
+
+- (void)animateMountains:(BOOL)animated {
+    
+    NSTimeInterval animationDuration = animated ? kDefaultAnimationDuration : 0.0;
+    CABasicAnimation *mountainAnimation = [self mountainAnimationWithMountainsLayer:self.mountains
+                                                                           duration:animationDuration];
+    [self.mountains addAnimation:mountainAnimation forKey:@"mountainsTransformAnimation"];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+
+    if([[anim valueForKey:@"id"] isEqualToString:@"circleStrokeEndAnimation"]){
+        [self animateMountains:YES];
+    }
+    
+    if([[anim valueForKey:@"id"] isEqualToString:@"mountainsTransformAnimation"]){
+        
+    }
 }
 
 @end
