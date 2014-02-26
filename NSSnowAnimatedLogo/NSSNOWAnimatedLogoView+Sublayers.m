@@ -31,6 +31,7 @@
     [mountains setBounds:self.bounds];
     [mountains setPosition:CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(self.bounds))];
     [mountains setAnchorPoint:CGPointMake(0.5, 1.0)];
+    [mountains setOpacity:0.0f];
     
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, nil, CGRectGetMinX(self.bounds), CGRectGetMaxY(self.bounds));
@@ -65,7 +66,7 @@
 }
 
 - (CGFloat)strokeWidth {
-    return floorf(CGRectGetWidth(self.bounds) / 20);
+    return floorf(CGRectGetWidth(self.bounds) / 30);
 }
 
 @end

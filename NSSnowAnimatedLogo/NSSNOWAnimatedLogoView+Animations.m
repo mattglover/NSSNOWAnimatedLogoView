@@ -8,12 +8,16 @@
 
 #import "NSSNOWAnimatedLogoView+Animations.h"
 
+NSString * const NSSnowAnimatedLogoViewAnimationKeyID               = @"id";
+NSString * const NSSNOWAnimatedLogoViewAnimationIDCircleStroke      = @"circleStrokeEndAnimation";
+NSString * const NSSNOWAnimatedLogoViewAnimationIDMountainOpacity   = @"mountainsOpacityAnimation";
+
 @implementation NSSNOWAnimatedLogoView (Animations)
 
 - (CABasicAnimation *)outerCircleAnimation:(NSTimeInterval)animationDuration {
         
     CABasicAnimation *circleAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    [circleAnimation setValue:@"circleStrokeEndAnimation" forKey:@"id"];
+    [circleAnimation setValue:NSSNOWAnimatedLogoViewAnimationIDCircleStroke forKey:NSSnowAnimatedLogoViewAnimationKeyID];
     [circleAnimation setDelegate:self];
     circleAnimation.duration = animationDuration;
     circleAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
@@ -25,17 +29,17 @@
 - (CABasicAnimation *)mountainAnimationWithMountainsLayer:(CAShapeLayer *)mountainsLayer
                                                   duration:(NSTimeInterval)animationDuration {
     
-    CATransform3D originTransform       = mountainsLayer.transform;
-    CATransform3D destinationTransform  = CATransform3DIdentity;
+    CGFloat originOpacity       = mountainsLayer.opacity;
+    CGFloat destinationOpacity  = 1.0f;
     
-    [mountainsLayer setTransform:destinationTransform];
+    [mountainsLayer setOpacity:destinationOpacity];
     
-    CABasicAnimation *mountainAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
-    [mountainAnimation setValue:@"mountainsTransformAnimation" forKey:@"id"];
+    CABasicAnimation *mountainAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    [mountainAnimation setValue:NSSNOWAnimatedLogoViewAnimationIDMountainOpacity forKey:NSSnowAnimatedLogoViewAnimationKeyID];
     [mountainAnimation setDelegate:self];
     mountainAnimation.duration = animationDuration;
-    mountainAnimation.fromValue = [NSValue valueWithCATransform3D:originTransform];
-    mountainAnimation.toValue   = [NSValue valueWithCATransform3D:destinationTransform];
+    mountainAnimation.fromValue = @(originOpacity);
+    mountainAnimation.toValue   = @(destinationOpacity);
     
     return mountainAnimation;
 }

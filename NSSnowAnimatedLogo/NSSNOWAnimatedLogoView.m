@@ -10,7 +10,8 @@
 #import "NSSNOWAnimatedLogoView+Animations.h"
 #import "NSSNOWAnimatedLogoView+Sublayers.h"
 
-static NSTimeInterval kDefaultAnimationDuration = 1.0;
+static NSTimeInterval kDefaultStandardAnimationDuration = 2.0;
+static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
 
 @interface NSSNOWAnimatedLogoView ()
 
@@ -55,9 +56,7 @@ static NSTimeInterval kDefaultAnimationDuration = 1.0;
 - (void)setupLayers {
 
     self.outerCircle = [self outerCircleLayer];
-    
     self.mountains = [self mountainsLayer];
-    [self.mountains setTransform:CATransform3DMakeScale(1.0, 0.0, 1.0)];
 }
 
 - (void)addSublayers {
@@ -68,27 +67,23 @@ static NSTimeInterval kDefaultAnimationDuration = 1.0;
 
 - (void)animateCircle:(BOOL)animated {
     
-    NSTimeInterval animationDuration = animated ? kDefaultAnimationDuration : 0.0f;
+    NSTimeInterval animationDuration = animated ? kDefaultFastAnimationDuration : 0.0f;
     CABasicAnimation *outerCircleAnimation = [self outerCircleAnimation:animationDuration];
-    [self.outerCircle addAnimation:outerCircleAnimation forKey:@"circleStrokeEndAnimation"];
+    [self.outerCircle addAnimation:outerCircleAnimation forKey:nil];
 }
 
 - (void)animateMountains:(BOOL)animated {
     
-    NSTimeInterval animationDuration = animated ? kDefaultAnimationDuration : 0.0;
+    NSTimeInterval animationDuration = animated ? kDefaultStandardAnimationDuration : 0.0;
     CABasicAnimation *mountainAnimation = [self mountainAnimationWithMountainsLayer:self.mountains
                                                                            duration:animationDuration];
-    [self.mountains addAnimation:mountainAnimation forKey:@"mountainsTransformAnimation"];
+    [self.mountains addAnimation:mountainAnimation forKey:nil];
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
 
-    if([[anim valueForKey:@"id"] isEqualToString:@"circleStrokeEndAnimation"]){
+    if([[anim valueForKey:NSSnowAnimatedLogoViewAnimationKeyID] isEqualToString:NSSNOWAnimatedLogoViewAnimationIDCircleStroke]){
         [self animateMountains:YES];
-    }
-    
-    if([[anim valueForKey:@"id"] isEqualToString:@"mountainsTransformAnimation"]){
-        
     }
 }
 

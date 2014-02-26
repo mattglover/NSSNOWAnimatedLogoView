@@ -8,6 +8,10 @@
 
 #import "NSSNOWAnimatedLogoView.h"
 
+extern NSString * const NSSnowAnimatedLogoViewAnimationKeyID;
+extern NSString * const NSSNOWAnimatedLogoViewAnimationIDCircleStroke;
+extern NSString * const NSSNOWAnimatedLogoViewAnimationIDMountainOpacity;
+
 @interface NSSNOWAnimatedLogoView (Animations)
 
 - (CABasicAnimation *)outerCircleAnimation:(NSTimeInterval)animationDuration;
