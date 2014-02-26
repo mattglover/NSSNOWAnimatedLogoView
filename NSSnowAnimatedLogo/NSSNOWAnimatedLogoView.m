@@ -17,6 +17,7 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
 
 @property (nonatomic, strong) CAShapeLayer *outerCircle;
 @property (nonatomic, strong) CAShapeLayer *mountains;
+@property (nonatomic, strong) CAShapeLayer *yearOval;
 @end
 
 @implementation NSSNOWAnimatedLogoView
@@ -55,7 +56,12 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
 
 - (void)setupLayers {
 
+    self.yearOval = [self yearOvalLayer];
+    
+    
     self.outerCircle = [self outerCircleLayer];
+    [self maskOuterCircle:self.outerCircle withMaskLayer:self.yearOval];
+    
     self.mountains = [self mountainsLayer];
 }
 
@@ -63,6 +69,7 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
     
     [self.layer addSublayer:self.mountains];
     [self.layer addSublayer:self.outerCircle];
+    [self.layer addSublayer:self.yearOval];
 }
 
 - (void)animateCircle:(BOOL)animated {

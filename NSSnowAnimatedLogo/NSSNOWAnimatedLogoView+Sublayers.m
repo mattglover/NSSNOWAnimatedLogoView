@@ -52,6 +52,21 @@
     return mountains;
 }
 
+- (CAShapeLayer *)yearOvalLayer {
+    
+    CAShapeLayer *yearOval = [CAShapeLayer layer];
+    CGFloat strokeWidth = [self strokeWidth];
+    [yearOval setBounds:CGRectMake(0, 0, CGRectGetWidth(self.bounds)/3, CGRectGetHeight(self.bounds)/6)];
+    [yearOval setPosition:CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(yearOval.bounds)/2 - strokeWidth)];
+    [yearOval setPath:[UIBezierPath bezierPathWithRoundedRect:yearOval.bounds
+                                                    cornerRadius:CGRectGetWidth(yearOval.bounds)/2].CGPath];
+    [yearOval setFillColor:[UIColor blackColor].CGColor];
+    [yearOval setStrokeColor:[UIColor whiteColor].CGColor];
+    [yearOval setLineWidth:strokeWidth/2];
+    
+    return yearOval;
+}
+
 - (CALayer *)maskLayer {
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -63,6 +78,10 @@
     [maskLayer setFillColor:[UIColor blackColor].CGColor];
     
     return maskLayer;
+}
+
+- (void)maskOuterCircle:(CAShapeLayer *)outerCircleLayer withMaskLayer:(CAShapeLayer *)maskLayer {
+    [outerCircleLayer setMask:maskLayer];
 }
 
 - (CGFloat)strokeWidth {

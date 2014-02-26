@@ -12,6 +12,9 @@
 
 - (CAShapeLayer *)outerCircleLayer;
 - (CAShapeLayer *)mountainsLayer;
+- (CAShapeLayer *)yearOvalLayer;
 - (CALayer *)maskLayer;
+
+- (void)maskOuterCircle:(CAShapeLayer *)outerCircleLayer withMaskLayer:(CAShapeLayer *)maskLayer;
 
 @end

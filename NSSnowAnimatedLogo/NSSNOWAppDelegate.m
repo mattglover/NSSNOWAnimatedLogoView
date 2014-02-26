@@ -16,7 +16,8 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor blackColor];
     
-    NSSNOWAnimatedLogoView *logoView = [[NSSNOWAnimatedLogoView alloc] initWithFrame:CGRectMake(35, 35, 250, 250)];
+    NSSNOWAnimatedLogoView *logoView = [[NSSNOWAnimatedLogoView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    [logoView setCenter:CGPointMake(CGRectGetWidth(self.window.bounds)/2, CGRectGetHeight(self.window.bounds)/2)];
     [self.window addSubview:logoView];
     
     [self.window makeKeyAndVisible];
