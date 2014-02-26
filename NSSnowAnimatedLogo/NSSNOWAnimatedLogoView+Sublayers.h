@@ -8,13 +8,15 @@
 
 #import "NSSNOWAnimatedLogoView.h"
 
+@class NSSNOWYearOvalLayer;
 @interface NSSNOWAnimatedLogoView (Sublayers)
 
 - (CAShapeLayer *)outerCircleLayer;
 - (CAShapeLayer *)mountainsLayer;
-- (CAShapeLayer *)yearOvalLayer;
+- (NSSNOWYearOvalLayer *)yearOvalLayer;
 - (CALayer *)maskLayer;
 
 - (void)maskOuterCircle:(CAShapeLayer *)outerCircleLayer withMaskLayer:(CAShapeLayer *)maskLayer;
+- (void)addYearString:(NSString *)yearString toYearOval:(CAShapeLayer *)yearOval;
 
 @end

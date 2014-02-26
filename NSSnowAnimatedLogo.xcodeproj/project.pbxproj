@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E21B2A7A18BDCAB000075EC5 /* NSSNOWAnimatedLogoView+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B2A7918BDCAB000075EC5 /* NSSNOWAnimatedLogoView+Animations.m */; };
 		E21B2A7D18BE80B000075EC5 /* NSSNOWAnimatedLogoView+Sublayers.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B2A7C18BE80B000075EC5 /* NSSNOWAnimatedLogoView+Sublayers.m */; };
+		E23896D318BE99D400790E39 /* NSSNOWYearOvalLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E23896D218BE99D400790E39 /* NSSNOWYearOvalLayer.m */; };
 		E252347418BABE38005AB578 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252347318BABE38005AB578 /* Foundation.framework */; };
 		E252347618BABE38005AB578 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252347518BABE38005AB578 /* CoreGraphics.framework */; };
 		E252347818BABE38005AB578 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E252347718BABE38005AB578 /* UIKit.framework */; };
@@ -40,6 +41,8 @@
 		E21B2A7918BDCAB000075EC5 /* NSSNOWAnimatedLogoView+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSNOWAnimatedLogoView+Animations.m"; sourceTree = "<group>"; };
 		E21B2A7B18BE80B000075EC5 /* NSSNOWAnimatedLogoView+Sublayers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSNOWAnimatedLogoView+Sublayers.h"; sourceTree = "<group>"; };
 		E21B2A7C18BE80B000075EC5 /* NSSNOWAnimatedLogoView+Sublayers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSNOWAnimatedLogoView+Sublayers.m"; sourceTree = "<group>"; };
+		E23896D118BE99D400790E39 /* NSSNOWYearOvalLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSSNOWYearOvalLayer.h; sourceTree = "<group>"; };
+		E23896D218BE99D400790E39 /* NSSNOWYearOvalLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSSNOWYearOvalLayer.m; sourceTree = "<group>"; };
 		E252347018BABE38005AB578 /* NSSnowAnimatedLogo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSSnowAnimatedLogo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E252347318BABE38005AB578 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E252347518BABE38005AB578 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +129,8 @@
 				E21B2A7C18BE80B000075EC5 /* NSSNOWAnimatedLogoView+Sublayers.m */,
 				E21B2A7818BDCAB000075EC5 /* NSSNOWAnimatedLogoView+Animations.h */,
 				E21B2A7918BDCAB000075EC5 /* NSSNOWAnimatedLogoView+Animations.m */,
+				E23896D118BE99D400790E39 /* NSSNOWYearOvalLayer.h */,
+				E23896D218BE99D400790E39 /* NSSNOWYearOvalLayer.m */,
 				E252348518BABE39005AB578 /* Images.xcassets */,
 				E252347A18BABE38005AB578 /* Supporting Files */,
 			);
@@ -261,6 +266,7 @@
 			files = (
 				E252348418BABE38005AB578 /* NSSNOWAppDelegate.m in Sources */,
 				E252348018BABE38005AB578 /* main.m in Sources */,
+				E23896D318BE99D400790E39 /* NSSNOWYearOvalLayer.m in Sources */,
 				E25234A418BABE5D005AB578 /* NSSNOWAnimatedLogoView.m in Sources */,
 				E21B2A7A18BDCAB000075EC5 /* NSSNOWAnimatedLogoView+Animations.m in Sources */,
 				E21B2A7D18BE80B000075EC5 /* NSSNOWAnimatedLogoView+Sublayers.m in Sources */,

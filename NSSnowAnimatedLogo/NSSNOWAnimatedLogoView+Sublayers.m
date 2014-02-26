@@ -7,6 +7,7 @@
 //
 
 #import "NSSNOWAnimatedLogoView+Sublayers.h"
+#import "NSSNOWYearOvalLayer.h"
 
 @implementation NSSNOWAnimatedLogoView (Sublayers)
 
@@ -52,9 +53,9 @@
     return mountains;
 }
 
-- (CAShapeLayer *)yearOvalLayer {
+- (NSSNOWYearOvalLayer *)yearOvalLayer {
     
-    CAShapeLayer *yearOval = [CAShapeLayer layer];
+    NSSNOWYearOvalLayer *yearOval = [NSSNOWYearOvalLayer layer];
     CGFloat strokeWidth = [self strokeWidth];
     [yearOval setBounds:CGRectMake(0, 0, CGRectGetWidth(self.bounds)/3, CGRectGetHeight(self.bounds)/6)];
     [yearOval setPosition:CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(yearOval.bounds)/2 - strokeWidth)];
@@ -82,6 +83,10 @@
 
 - (void)maskOuterCircle:(CAShapeLayer *)outerCircleLayer withMaskLayer:(CAShapeLayer *)maskLayer {
     [outerCircleLayer setMask:maskLayer];
+}
+
+- (void)addYearString:(NSString *)yearString toYearOval:(CAShapeLayer *)yearOval {
+    NSLog(@"Here");
 }
 
 - (CGFloat)strokeWidth {

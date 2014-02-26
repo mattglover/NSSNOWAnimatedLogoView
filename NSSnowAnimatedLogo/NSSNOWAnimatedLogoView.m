@@ -9,6 +9,7 @@
 #import "NSSNOWAnimatedLogoView.h"
 #import "NSSNOWAnimatedLogoView+Animations.h"
 #import "NSSNOWAnimatedLogoView+Sublayers.h"
+#import "NSSNOWYearOvalLayer.h"
 
 static NSTimeInterval kDefaultStandardAnimationDuration = 2.0;
 static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
@@ -17,7 +18,7 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
 
 @property (nonatomic, strong) CAShapeLayer *outerCircle;
 @property (nonatomic, strong) CAShapeLayer *mountains;
-@property (nonatomic, strong) CAShapeLayer *yearOval;
+@property (nonatomic, strong) NSSNOWYearOvalLayer *yearOval;
 @end
 
 @implementation NSSNOWAnimatedLogoView
@@ -57,7 +58,7 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
 - (void)setupLayers {
 
     self.yearOval = [self yearOvalLayer];
-    
+    [self.yearOval setYearString:@"2014"];
     
     self.outerCircle = [self outerCircleLayer];
     [self maskOuterCircle:self.outerCircle withMaskLayer:self.yearOval];
@@ -75,7 +76,7 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
 - (void)animateCircle:(BOOL)animated {
     
     NSTimeInterval animationDuration = animated ? kDefaultFastAnimationDuration : 0.0f;
-    CABasicAnimation *outerCircleAnimation = [self outerCircleAnimation:animationDuration];
+    CABasicAnimation *outerCircleAnimation = [self outerCircleStrokeAnimationWithDuration:animationDuration];
     [self.outerCircle addAnimation:outerCircleAnimation forKey:nil];
 }
 
@@ -91,6 +92,7 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
 
     if([[anim valueForKey:NSSnowAnimatedLogoViewAnimationKeyID] isEqualToString:NSSNOWAnimatedLogoViewAnimationIDCircleStroke]){
         [self animateMountains:YES];
+        [self.yearOval displayYearStringWithAnimationDuration:kDefaultFastAnimationDuration];
     }
 }
 

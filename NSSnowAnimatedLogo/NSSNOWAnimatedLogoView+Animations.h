@@ -14,7 +14,9 @@ extern NSString * const NSSNOWAnimatedLogoViewAnimationIDMountainOpacity;
 
 @interface NSSNOWAnimatedLogoView (Animations)
 
-- (CABasicAnimation *)outerCircleAnimation:(NSTimeInterval)animationDuration;
+- (CABasicAnimation *)outerCircleStrokeAnimationWithDuration:(NSTimeInterval)animationDuration;
 - (CABasicAnimation *)mountainAnimationWithMountainsLayer:(CAShapeLayer *)mountainsLayer
                                                  duration:(NSTimeInterval)animationDuration;
+- (CABasicAnimation *)yearTextAnimationWithYearTextLayer:(CATextLayer *)textLayer
+                                                duration:(NSTimeInterval)animationDuration;
 @end

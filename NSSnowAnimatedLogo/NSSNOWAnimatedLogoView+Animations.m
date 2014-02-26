@@ -14,7 +14,7 @@ NSString * const NSSNOWAnimatedLogoViewAnimationIDMountainOpacity   = @"mountain
 
 @implementation NSSNOWAnimatedLogoView (Animations)
 
-- (CABasicAnimation *)outerCircleAnimation:(NSTimeInterval)animationDuration {
+- (CABasicAnimation *)outerCircleStrokeAnimationWithDuration:(NSTimeInterval)animationDuration {
         
     CABasicAnimation *circleAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     [circleAnimation setValue:NSSNOWAnimatedLogoViewAnimationIDCircleStroke forKey:NSSnowAnimatedLogoViewAnimationKeyID];
@@ -42,6 +42,24 @@ NSString * const NSSNOWAnimatedLogoViewAnimationIDMountainOpacity   = @"mountain
     mountainAnimation.toValue   = @(destinationOpacity);
     
     return mountainAnimation;
+}
+
+- (CABasicAnimation *)yearTextAnimationWithYearTextLayer:(CATextLayer *)textLayer
+                                  duration:(NSTimeInterval)animationDuration {
+    
+    CGFloat originOpacity       = textLayer.opacity;
+    CGFloat destinationOpacity  = 1.0f;
+    
+    [textLayer setOpacity:destinationOpacity];
+    
+    CABasicAnimation *yearTextAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    [yearTextAnimation setValue:NSSNOWAnimatedLogoViewAnimationIDMountainOpacity forKey:NSSnowAnimatedLogoViewAnimationKeyID];
+    [yearTextAnimation setDelegate:self];
+    yearTextAnimation.duration = animationDuration;
+    yearTextAnimation.fromValue = @(originOpacity);
+    yearTextAnimation.toValue   = @(destinationOpacity);
+    
+    return yearTextAnimation;
 }
 
 @end
