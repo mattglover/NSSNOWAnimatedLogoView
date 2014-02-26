@@ -68,6 +68,21 @@
     return yearOval;
 }
 
+- (CATextLayer *)nssnowTextLayer {
+    
+    CATextLayer *nssnowTextLayer = [CATextLayer layer];
+    [nssnowTextLayer setBounds:CGRectMake(0, 0, CGRectGetWidth(self.bounds)/2, [self fontSize])];
+    [nssnowTextLayer setPosition:CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(self.bounds)/3.5)];
+    [nssnowTextLayer setFont:(__bridge CFTypeRef)([UIFont boldSystemFontOfSize:18].fontName)];
+    [nssnowTextLayer setFontSize:[self fontSize]];
+    [nssnowTextLayer setAlignmentMode:kCAAlignmentCenter];
+    [nssnowTextLayer setString:@"NSSNOW"];
+    [nssnowTextLayer setOpacity:0.0f];
+    [nssnowTextLayer setContentsScale:[UIScreen mainScreen].scale];
+    
+    return nssnowTextLayer;
+}
+
 - (CALayer *)maskLayer {
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -85,12 +100,15 @@
     [outerCircleLayer setMask:maskLayer];
 }
 
-- (void)addYearString:(NSString *)yearString toYearOval:(CAShapeLayer *)yearOval {
-    NSLog(@"Here");
-}
-
+#pragma mark - Stroke Width Helper
 - (CGFloat)strokeWidth {
     return floorf(CGRectGetWidth(self.bounds) / 30);
+}
+
+#pragma mark - Font Size Helper
+- (CGFloat)fontSize {
+    CGFloat fontSize = floorf(CGRectGetHeight(self.bounds) * 0.1);
+    return fontSize;
 }
 
 @end

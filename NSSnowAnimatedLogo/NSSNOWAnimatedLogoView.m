@@ -19,6 +19,7 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
 @property (nonatomic, strong) CAShapeLayer *outerCircle;
 @property (nonatomic, strong) CAShapeLayer *mountains;
 @property (nonatomic, strong) NSSNOWYearOvalLayer *yearOval;
+@property (nonatomic, strong) CATextLayer *nssnowText;
 @end
 
 @implementation NSSNOWAnimatedLogoView
@@ -64,6 +65,8 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
     [self maskOuterCircle:self.outerCircle withMaskLayer:self.yearOval];
     
     self.mountains = [self mountainsLayer];
+    
+    self.nssnowText = [self nssnowTextLayer];
 }
 
 - (void)addSublayers {
@@ -71,6 +74,7 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
     [self.layer addSublayer:self.mountains];
     [self.layer addSublayer:self.outerCircle];
     [self.layer addSublayer:self.yearOval];
+    [self.layer addSublayer:self.nssnowText];
 }
 
 - (void)animateCircle:(BOOL)animated {
@@ -88,10 +92,19 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
     [self.mountains addAnimation:mountainAnimation forKey:nil];
 }
 
+- (void)animateNSSnowText:(BOOL)animated {
+    
+    NSTimeInterval animationDuration = animated ? kDefaultFastAnimationDuration : 0.0;
+    CABasicAnimation *nssnowAnimation = [self nssnowTextAnimationWithTextLayer:self.nssnowText
+                                                                      duration:animationDuration];
+    [self.nssnowText addAnimation:nssnowAnimation forKey:nil];
+}
+
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
 
     if([[anim valueForKey:NSSnowAnimatedLogoViewAnimationKeyID] isEqualToString:NSSNOWAnimatedLogoViewAnimationIDCircleStroke]){
         [self animateMountains:YES];
+        [self animateNSSnowText:YES];
         [self.yearOval displayYearStringWithAnimationDuration:kDefaultFastAnimationDuration];
     }
 }

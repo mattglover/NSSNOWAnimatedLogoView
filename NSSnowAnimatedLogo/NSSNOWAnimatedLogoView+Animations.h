@@ -10,13 +10,12 @@
 
 extern NSString * const NSSnowAnimatedLogoViewAnimationKeyID;
 extern NSString * const NSSNOWAnimatedLogoViewAnimationIDCircleStroke;
-extern NSString * const NSSNOWAnimatedLogoViewAnimationIDMountainOpacity;
 
 @interface NSSNOWAnimatedLogoView (Animations)
 
 - (CABasicAnimation *)outerCircleStrokeAnimationWithDuration:(NSTimeInterval)animationDuration;
 - (CABasicAnimation *)mountainAnimationWithMountainsLayer:(CAShapeLayer *)mountainsLayer
                                                  duration:(NSTimeInterval)animationDuration;
-- (CABasicAnimation *)yearTextAnimationWithYearTextLayer:(CATextLayer *)textLayer
-                                                duration:(NSTimeInterval)animationDuration;
+- (CABasicAnimation *)nssnowTextAnimationWithTextLayer:(CATextLayer *)textLayer
+                                              duration:(NSTimeInterval)animationDuration;
 @end
