@@ -14,7 +14,6 @@
 static NSTimeInterval kDefaultSlowAnimationDuration = 3.0;
 static NSTimeInterval kDefaultStandardAnimationDuration = 1.5;
 static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
-static NSTimeInterval kDefaultExtraFastAnimationDuration = 0.5;
 
 @interface NSSNOWAnimatedLogoView ()
 @property (nonatomic, strong) CAShapeLayer *outerCircle;
@@ -36,7 +35,7 @@ static NSTimeInterval kDefaultExtraFastAnimationDuration = 0.5;
         
         [self setupLayers];
         
-        double delayInSeconds = 1.0;
+        double delayInSeconds = 0.5;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self addSublayers];
@@ -66,15 +65,12 @@ static NSTimeInterval kDefaultExtraFastAnimationDuration = 0.5;
 
     self.yearOval = [self yearOvalLayer];
     [self.yearOval setYearString:@"2014"];
+    [self.yearOval setZPosition:CGFLOAT_MAX];
     [self transformYearOval];
     
     self.outerCircle = [self outerCircleLayer];
-    [self maskOuterCircle:self.outerCircle withMaskLayer:self.yearOval];
-    
     self.mountains = [self mountainsLayer];
-    
     self.skiTracks = [self skiTracksLayer];
-    
     self.nssnowText = [self nssnowTextLayer];
 }
 
@@ -103,16 +99,10 @@ static NSTimeInterval kDefaultExtraFastAnimationDuration = 0.5;
 
 - (void)animateExpandYearOval:(BOOL)animated {
     
-    [self addBlankOvalShapeLayer];
-    
-    NSTimeInterval animationDuration = animated ? kDefaultExtraFastAnimationDuration : 0.0;
+    NSTimeInterval animationDuration = animated ? kDefaultFastAnimationDuration : 0.0;
     CABasicAnimation *mountainAnimation = [self yearOvalTransformAnimationWithLayer:self.yearOval
                                                                            duration:animationDuration];
     [self.yearOval addAnimation:mountainAnimation forKey:nil];
-}
-
-- (void)addBlankOvalShapeLayer {
-    [self.layer insertSublayer:[self ovalShape] below:self.yearOval];
 }
 
 - (void)animateNSSnowText:(BOOL)animated {
@@ -136,19 +126,21 @@ static NSTimeInterval kDefaultExtraFastAnimationDuration = 0.5;
 
     if([[anim valueForKey:NSSnowAnimatedLogoViewAnimationKeyID] isEqualToString:NSSNOWAnimatedLogoViewAnimationIDCircleStroke]){
         [self animateMountains:YES];
-    }
-    
-    if([[anim valueForKey:NSSnowAnimatedLogoViewAnimationKeyID] isEqualToString:NSSNOWAnimatedLogoViewAnimationIDMountainOpacity]){
         [self animateExpandYearOval:YES];
         [self animateNSSnowText:YES];
         [self.yearOval displayYearStringWithAnimationDuration:kDefaultFastAnimationDuration];
+    }
+    
+    if([[anim valueForKey:NSSnowAnimatedLogoViewAnimationKeyID] isEqualToString:NSSNOWAnimatedLogoViewAnimationIDMountainOpacity]){
         [self animateSkiTracks:YES];
     }
 }
 
 - (void)transformYearOval {
     CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = 1.0f / 500.0f;
     transform = CATransform3DScale(transform, 1.0, 0.0, 1.0);
+    transform = CATransform3DRotate(transform, (90 * M_PI / 180), 1.0, 0.0, 0.0);
     [self.yearOval setTransform:transform];
 }
 
