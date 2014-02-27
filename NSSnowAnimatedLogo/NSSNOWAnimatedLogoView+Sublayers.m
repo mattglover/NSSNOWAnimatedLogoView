@@ -91,7 +91,7 @@
     [skiTracksLayer setOpacity:1.0f];
     
     CGMutablePathRef path = CGPathCreateMutable();
-    CGPathMoveToPoint(path, nil, (CGRectGetWidth(self.bounds)/ 8) * 4.5, (CGRectGetHeight(self.bounds)/ 16) * 9);
+    CGPathMoveToPoint(path, nil, (CGRectGetWidth(self.bounds)/ 8) * 4.5, (CGRectGetHeight(self.bounds)/ 16) * 8.9);
     
     CGFloat cp1x = floorf(CGRectGetWidth(self.bounds) * .10);
     CGFloat cp1y = floorf(CGRectGetHeight(self.bounds) * .70);
@@ -132,7 +132,7 @@
 }
 
 - (CGFloat)skiTrackStrokeWidth {
-    return floorf(CGRectGetWidth(self.bounds) / 150);
+    return MAX(1.0, floorf(CGRectGetWidth(self.bounds) / 100));
 }
 
 #pragma mark - Font Size Helper
