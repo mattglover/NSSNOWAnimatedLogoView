@@ -14,6 +14,7 @@
 - (CAShapeLayer *)outerCircleLayer;
 - (CAShapeLayer *)mountainsLayer;
 - (CAShapeLayer *)skiTracksLayer;
+- (CAShapeLayer *)ovalShape;
 - (NSSNOWYearOvalLayer *)yearOvalLayer;
 - (CATextLayer *)nssnowTextLayer;
 - (CALayer *)maskLayer;

@@ -55,17 +55,32 @@
 
 - (NSSNOWYearOvalLayer *)yearOvalLayer {
     
+    CAShapeLayer *ovalShape = [self ovalShape];
+    
     NSSNOWYearOvalLayer *yearOval = [NSSNOWYearOvalLayer layer];
-    CGFloat strokeWidth = [self strokeWidth];
-    [yearOval setBounds:CGRectMake(0, 0, CGRectGetWidth(self.bounds)/3, CGRectGetHeight(self.bounds)/6)];
-    [yearOval setPosition:CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(yearOval.bounds)/2 - strokeWidth)];
-    [yearOval setPath:[UIBezierPath bezierPathWithRoundedRect:yearOval.bounds
-                                                 cornerRadius:CGRectGetWidth(yearOval.bounds)/2].CGPath];
+    [yearOval setBounds:ovalShape.bounds];
+    [yearOval setPosition:ovalShape.position];
+    [yearOval setPath:ovalShape.path];
     [yearOval setFillColor:[UIColor blackColor].CGColor];
     [yearOval setStrokeColor:[UIColor whiteColor].CGColor];
-    [yearOval setLineWidth:strokeWidth/2];
+    [yearOval setLineWidth:ovalShape.lineWidth];
     
     return yearOval;
+}
+
+- (CAShapeLayer *)ovalShape {
+    
+    CAShapeLayer *ovalShape = [CAShapeLayer layer];
+    CGFloat strokeWidth = [self strokeWidth];
+    [ovalShape setBounds:CGRectMake(0, 0, CGRectGetWidth(self.bounds)/3, CGRectGetHeight(self.bounds)/6)];
+    [ovalShape setPosition:CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(ovalShape.bounds)/2 - strokeWidth)];
+    [ovalShape setPath:[UIBezierPath bezierPathWithRoundedRect:ovalShape.bounds
+                                                 cornerRadius:CGRectGetWidth(ovalShape.bounds)/2].CGPath];
+    [ovalShape setFillColor:[UIColor blackColor].CGColor];
+    [ovalShape setStrokeColor:[UIColor blackColor].CGColor];
+    [ovalShape setLineWidth:strokeWidth/2];
+    
+    return ovalShape;
 }
 
 - (CATextLayer *)nssnowTextLayer {
