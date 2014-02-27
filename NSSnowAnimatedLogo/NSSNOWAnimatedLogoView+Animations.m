@@ -10,32 +10,46 @@
 
 NSString * const NSSnowAnimatedLogoViewAnimationKeyID               = @"id";
 NSString * const NSSNOWAnimatedLogoViewAnimationIDCircleStroke      = @"circleStrokeEndAnimation";
+NSString * const NSSNOWAnimatedLogoViewAnimationIDMountainOpacity   = @"mountainOpacityAnimation";
 
 @implementation NSSNOWAnimatedLogoView (Animations)
 
 - (CABasicAnimation *)outerCircleStrokeAnimationWithDuration:(NSTimeInterval)animationDuration {
-        
-    CABasicAnimation *circleAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    [circleAnimation setValue:NSSNOWAnimatedLogoViewAnimationIDCircleStroke forKey:NSSnowAnimatedLogoViewAnimationKeyID];
-    [circleAnimation setDelegate:self];
-    circleAnimation.duration = animationDuration;
-    circleAnimation.fromValue = [NSNumber numberWithFloat:0.0f];
-    circleAnimation.toValue = [NSNumber numberWithFloat:1.0f];
-    
-    return circleAnimation;
+    return [self strokeEndAnimationWithDuration:animationDuration withID:NSSNOWAnimatedLogoViewAnimationIDCircleStroke];
 }
 
 - (CABasicAnimation *)mountainAnimationWithMountainsLayer:(CAShapeLayer *)mountainsLayer
-                                                  duration:(NSTimeInterval)animationDuration {
-    return [self showLayer:mountainsLayer duration:animationDuration];
+                                                 duration:(NSTimeInterval)animationDuration {
+    return [self showLayerAnimation:mountainsLayer duration:animationDuration withID:NSSNOWAnimatedLogoViewAnimationIDMountainOpacity];
+}
+
+- (CABasicAnimation *)skiTracksStrokeAnimationWithDuration:(NSTimeInterval)animationDuration {
+    return [self strokeEndAnimationWithDuration:animationDuration withID:nil];
+}
+
+- (CABasicAnimation *)yearOvalTransformAnimationWithLayer:(CALayer *)layer duration:(NSTimeInterval)animationDuration {
+    
+    CATransform3D originTransform      = layer.transform;
+    CATransform3D destinationTransform = CATransform3DIdentity;;
+    
+    [layer setTransform:destinationTransform];
+    
+    CABasicAnimation *yearOvalTransform = [CABasicAnimation animationWithKeyPath:@"transform"];
+    [yearOvalTransform setDelegate:self];
+    [yearOvalTransform setDuration:animationDuration];
+    [yearOvalTransform setFromValue:[NSValue valueWithCATransform3D:originTransform]];
+    [yearOvalTransform setToValue:[NSValue valueWithCATransform3D:destinationTransform]];
+    
+    return yearOvalTransform;
 }
 
 - (CABasicAnimation *)nssnowTextAnimationWithTextLayer:(CATextLayer *)textLayer
                                               duration:(NSTimeInterval)animationDuration {
-    return [self showLayer:textLayer duration:animationDuration];
+    return [self showLayerAnimation:textLayer duration:animationDuration withID:nil];
 }
 
-- (CABasicAnimation *)showLayer:(CALayer *)layer duration:(NSTimeInterval)animationDuration {
+#pragma mark - Private Methods
+- (CABasicAnimation *)showLayerAnimation:(CALayer *)layer duration:(NSTimeInterval)animationDuration withID:(NSString *)animationID {
     
     CGFloat originOpacity       = layer.opacity;
     CGFloat destinationOpacity  = 1.0f;
@@ -43,12 +57,26 @@ NSString * const NSSNOWAnimatedLogoViewAnimationIDCircleStroke      = @"circleSt
     [layer setOpacity:destinationOpacity];
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    [animation setValue:animationID forKey:NSSnowAnimatedLogoViewAnimationKeyID];
     [animation setDelegate:self];
-    animation.duration = animationDuration;
-    animation.fromValue = @(originOpacity);
-    animation.toValue   = @(destinationOpacity);
+    [animation setDuration:animationDuration];
+    [animation setFromValue:@(originOpacity)];
+    [animation setToValue:@(destinationOpacity)];
     
     return animation;
+}
+
+- (CABasicAnimation *)strokeEndAnimationWithDuration:(NSTimeInterval)animationDuration withID:(NSString *)animationID {
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    [animation setValue:animationID forKey:NSSnowAnimatedLogoViewAnimationKeyID];
+    [animation setDelegate:self];
+    [animation setDuration:animationDuration];
+    [animation setFromValue:[NSNumber numberWithFloat:0.0f]];
+    [animation setToValue:[NSNumber numberWithFloat:1.0f]];
+    
+    return animation;
+    
 }
 
 @end

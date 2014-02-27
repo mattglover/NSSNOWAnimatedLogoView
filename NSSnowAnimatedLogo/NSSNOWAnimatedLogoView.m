@@ -11,13 +11,15 @@
 #import "NSSNOWAnimatedLogoView+Sublayers.h"
 #import "NSSNOWYearOvalLayer.h"
 
-static NSTimeInterval kDefaultStandardAnimationDuration = 2.0;
+static NSTimeInterval kDefaultSlowAnimationDuration = 2.5;
+static NSTimeInterval kDefaultStandardAnimationDuration = 1.5;
 static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
 
 @interface NSSNOWAnimatedLogoView ()
 
 @property (nonatomic, strong) CAShapeLayer *outerCircle;
 @property (nonatomic, strong) CAShapeLayer *mountains;
+@property (nonatomic, strong) CAShapeLayer *skiTracks;
 @property (nonatomic, strong) NSSNOWYearOvalLayer *yearOval;
 @property (nonatomic, strong) CATextLayer *nssnowText;
 @end
@@ -64,7 +66,11 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
     self.outerCircle = [self outerCircleLayer];
     [self maskOuterCircle:self.outerCircle withMaskLayer:self.yearOval];
     
+    [self transformYearOval];
+    
     self.mountains = [self mountainsLayer];
+    
+    self.skiTracks = [self skiTracksLayer];
     
     self.nssnowText = [self nssnowTextLayer];
 }
@@ -92,6 +98,14 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
     [self.mountains addAnimation:mountainAnimation forKey:nil];
 }
 
+- (void)animateExpandYearOval:(BOOL)animated {
+    
+    NSTimeInterval animationDuration = animated ? kDefaultFastAnimationDuration : 0.0;
+    CABasicAnimation *mountainAnimation = [self yearOvalTransformAnimationWithLayer:self.yearOval
+                                                                           duration:animationDuration];
+    [self.yearOval addAnimation:mountainAnimation forKey:nil];
+}
+
 - (void)animateNSSnowText:(BOOL)animated {
     
     NSTimeInterval animationDuration = animated ? kDefaultFastAnimationDuration : 0.0;
@@ -100,13 +114,36 @@ static NSTimeInterval kDefaultFastAnimationDuration = 1.0;
     [self.nssnowText addAnimation:nssnowAnimation forKey:nil];
 }
 
+- (void)animateSkiTracks:(BOOL)animated {
+    
+    [self.layer addSublayer:self.skiTracks];
+    
+    NSTimeInterval animationDuration = animated ? kDefaultSlowAnimationDuration : 0.0;
+    CABasicAnimation *skiTracksAnimation = [self skiTracksStrokeAnimationWithDuration:animationDuration];
+    [self.skiTracks addAnimation:skiTracksAnimation forKey:nil];
+}
+
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
 
     if([[anim valueForKey:NSSnowAnimatedLogoViewAnimationKeyID] isEqualToString:NSSNOWAnimatedLogoViewAnimationIDCircleStroke]){
         [self animateMountains:YES];
+        [self animateExpandYearOval:YES];
+    }
+    
+    if([[anim valueForKey:NSSnowAnimatedLogoViewAnimationKeyID] isEqualToString:NSSNOWAnimatedLogoViewAnimationIDMountainOpacity]){
         [self animateNSSnowText:YES];
         [self.yearOval displayYearStringWithAnimationDuration:kDefaultFastAnimationDuration];
+        [self animateSkiTracks:YES];
     }
+}
+
+- (void)transformYearOval {
+    
+    CATransform3D transform = CATransform3DIdentity;
+    transform.m34 = 1.0 / 1.0f;
+    transform = CATransform3DRotate(transform, (90 * M_PI / 180), 1.0, 0.0, 0.0);
+    transform = CATransform3DScale(transform, 1.0, 0.0, 1.0);
+    [self.yearOval setTransform:transform];
 }
 
 @end

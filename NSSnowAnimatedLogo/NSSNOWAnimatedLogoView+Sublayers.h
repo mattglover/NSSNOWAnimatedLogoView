@@ -13,11 +13,11 @@
 
 - (CAShapeLayer *)outerCircleLayer;
 - (CAShapeLayer *)mountainsLayer;
+- (CAShapeLayer *)skiTracksLayer;
 - (NSSNOWYearOvalLayer *)yearOvalLayer;
 - (CATextLayer *)nssnowTextLayer;
 - (CALayer *)maskLayer;
 
 - (void)maskOuterCircle:(CAShapeLayer *)outerCircleLayer withMaskLayer:(CAShapeLayer *)maskLayer;
-- (void)addYearString:(NSString *)yearString toYearOval:(CAShapeLayer *)yearOval;
 
 @end

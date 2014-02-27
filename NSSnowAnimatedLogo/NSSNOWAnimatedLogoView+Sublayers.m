@@ -60,7 +60,7 @@
     [yearOval setBounds:CGRectMake(0, 0, CGRectGetWidth(self.bounds)/3, CGRectGetHeight(self.bounds)/6)];
     [yearOval setPosition:CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(yearOval.bounds)/2 - strokeWidth)];
     [yearOval setPath:[UIBezierPath bezierPathWithRoundedRect:yearOval.bounds
-                                                    cornerRadius:CGRectGetWidth(yearOval.bounds)/2].CGPath];
+                                                 cornerRadius:CGRectGetWidth(yearOval.bounds)/2].CGPath];
     [yearOval setFillColor:[UIColor blackColor].CGColor];
     [yearOval setStrokeColor:[UIColor whiteColor].CGColor];
     [yearOval setLineWidth:strokeWidth/2];
@@ -83,6 +83,32 @@
     return nssnowTextLayer;
 }
 
+- (CAShapeLayer *)skiTracksLayer {
+    
+    CAShapeLayer *skiTracksLayer = [CAShapeLayer layer];
+    [skiTracksLayer setBounds:self.bounds];
+    [skiTracksLayer setPosition:CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(self.bounds)/2)];
+    [skiTracksLayer setOpacity:1.0f];
+    
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, nil, (CGRectGetWidth(self.bounds)/ 8) * 4.5, (CGRectGetHeight(self.bounds)/ 16) * 9);
+    
+    CGFloat cp1x = floorf(CGRectGetWidth(self.bounds) * .10);
+    CGFloat cp1y = floorf(CGRectGetHeight(self.bounds) * .70);
+    CGFloat cp2x = floorf(CGRectGetWidth(self.bounds) * .85);
+    CGFloat cp2y = floorf(CGRectGetHeight(self.bounds) * .75);
+    
+    CGPathAddCurveToPoint(path, nil, cp1x, cp1y, cp2x, cp2y, (CGRectGetWidth(self.bounds)/ 8) * 4.5, (CGRectGetHeight(self.bounds)/ 16) * 15.2);
+    [skiTracksLayer setPath:path];
+    CGPathRelease(path);
+    
+    [skiTracksLayer setStrokeColor:[UIColor colorWithWhite:0.0 alpha:1.0].CGColor];
+    [skiTracksLayer setFillColor:[UIColor clearColor].CGColor];
+    [skiTracksLayer setLineWidth:[self skiTrackStrokeWidth]];
+    
+    return skiTracksLayer;
+}
+
 - (CALayer *)maskLayer {
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
@@ -103,6 +129,10 @@
 #pragma mark - Stroke Width Helper
 - (CGFloat)strokeWidth {
     return floorf(CGRectGetWidth(self.bounds) / 30);
+}
+
+- (CGFloat)skiTrackStrokeWidth {
+    return floorf(CGRectGetWidth(self.bounds) / 150);
 }
 
 #pragma mark - Font Size Helper
